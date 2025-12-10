@@ -1,0 +1,187 @@
+2025-12-10 02:49:17.327 +00:00 [INF] [ThreadId:1] NBomber 6.1.2 started a new session: 2025-12-10_02.49.28_session_650480d9
+2025-12-10 02:49:17.364 +00:00 [INF] [ThreadId:1] NBomber started as single node
+2025-12-10 02:49:17.366 +00:00 [INF] [ThreadId:1] License validation....
+2025-12-10 02:49:17.366 +00:00 [WRN] [ThreadId:1] THIS VERSION IS FREE ONLY FOR PERSONAL USE. You can't use it for an organization.
+2025-12-10 02:49:17.405 +00:00 [INF] [ThreadId:1] Reports folder: /usr/share/dotnet/reports
+2025-12-10 02:49:17.406 +00:00 [INF] [ThreadId:1] Plugins: no plugins were loaded
+2025-12-10 02:49:17.407 +00:00 [INF] [ThreadId:1] Reporting sink loaded: NBomber.Sinks.Prometheus
+2025-12-10 02:49:17.407 +00:00 [INF] [ThreadId:1] Starting init...
+2025-12-10 02:49:17.411 +00:00 [INF] [ThreadId:1] Start init reporting sink: NBomber.Sinks.Prometheus
+2025-12-10 02:49:17.419 +00:00 [INF] [ThreadId:1] NBomber.Sinks.Prometheus listens at those addresses: http://+:9464/metrics
+2025-12-10 02:49:17.487 +00:00 [INF] [ThreadId:1] Target scenarios: get_person, post_person
+2025-12-10 02:49:17.489 +00:00 [INF] [ThreadId:1] Init finished
+2025-12-10 02:49:17.502 +00:00 [INF] [ThreadId:1] Starting bombing...
+2025-12-10 02:49:24.700 +00:00 [WRN] [ThreadId:11] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:49:29.604 +00:00 [WRN] [ThreadId:17] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:49:34.608 +00:00 [WRN] [ThreadId:9] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:49:39.607 +00:00 [WRN] [ThreadId:16] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:49:44.607 +00:00 [WRN] [ThreadId:17] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:49:49.611 +00:00 [WRN] [ThreadId:15] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:49:54.611 +00:00 [WRN] [ThreadId:15] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:49:59.611 +00:00 [WRN] [ThreadId:16] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:50:04.611 +00:00 [WRN] [ThreadId:18] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:50:09.610 +00:00 [WRN] [ThreadId:15] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:50:14.611 +00:00 [WRN] [ThreadId:18] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:50:19.613 +00:00 [WRN] [ThreadId:18] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:50:24.613 +00:00 [WRN] [ThreadId:18] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:50:29.613 +00:00 [WRN] [ThreadId:12] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:50:34.614 +00:00 [WRN] [ThreadId:17] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:50:39.614 +00:00 [WRN] [ThreadId:20] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:50:44.613 +00:00 [WRN] [ThreadId:16] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:50:49.616 +00:00 [WRN] [ThreadId:16] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:50:54.620 +00:00 [WRN] [ThreadId:17] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:50:59.548 +00:00 [WRN] [ThreadId:9] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:51:04.552 +00:00 [WRN] [ThreadId:20] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:51:09.624 +00:00 [WRN] [ThreadId:15] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:51:14.553 +00:00 [WRN] [ThreadId:11] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:51:19.553 +00:00 [WRN] [ThreadId:5] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:51:24.551 +00:00 [WRN] [ThreadId:22] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:51:27.722 +00:00 [ERR] [ThreadId:11] Unhandled exception for Scenario: 0
+System.Net.Http.HttpRequestException: An error occurred while sending the request.
+ ---> System.Net.Http.HttpIOException: The response ended prematurely. (ResponseEnded)
+   at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at Program.<>c__DisplayClass0_0.<<<Main>$>b__1>d.MoveNext() in /src/Program.cs:line 42
+--- End of stack trace from previous location ---
+   at NBomber.FSharp.Scenario.typedRun@70-1.MoveNext()
+   at NBomber.Domain.Scheduler.ScenarioActor.clo@72-5.MoveNext()
+2025-12-10 02:51:27.722 +00:00 [ERR] [ThreadId:23] Unhandled exception for Scenario: 0
+System.Net.Http.HttpRequestException: An error occurred while sending the request.
+ ---> System.Net.Http.HttpIOException: The response ended prematurely. (ResponseEnded)
+   at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at Program.<>c__DisplayClass0_0.<<<Main>$>b__1>d.MoveNext() in /src/Program.cs:line 42
+--- End of stack trace from previous location ---
+   at NBomber.FSharp.Scenario.typedRun@70-1.MoveNext()
+   at NBomber.Domain.Scheduler.ScenarioActor.clo@72-5.MoveNext()
+2025-12-10 02:51:29.551 +00:00 [WRN] [ThreadId:23] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:51:34.550 +00:00 [WRN] [ThreadId:18] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:51:39.550 +00:00 [WRN] [ThreadId:5] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:51:44.550 +00:00 [WRN] [ThreadId:9] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:51:49.562 +00:00 [WRN] [ThreadId:15] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:51:54.565 +00:00 [WRN] [ThreadId:11] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:51:59.574 +00:00 [WRN] [ThreadId:11] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:52:04.582 +00:00 [WRN] [ThreadId:20] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:52:09.581 +00:00 [WRN] [ThreadId:23] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:52:14.594 +00:00 [WRN] [ThreadId:15] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:52:19.593 +00:00 [WRN] [ThreadId:18] Reporting sink: NBomber.Sinks.Prometheus failed to save realtime scenario stats
+System.NotImplementedException: The method or operation is not implemented.
+   at NBomber.Sinks.Prometheus.PrometheusSink.SaveRealtimeMetrics(MetricStats metrics) in /src/NBomber.Sinks.Prometheus/PrometheusSink.cs:line 61
+   at NBomber.DomainServices.TestHost.ReportingSinks.saveRealtimeStats@39.MoveNext()
+2025-12-10 02:52:20.524 +00:00 [INF] [ThreadId:21] Stopping scenarios...
+2025-12-10 02:52:20.526 +00:00 [INF] [ThreadId:21] Calculating final statistics...
+2025-12-10 02:52:20.758 +00:00 [INF] [ThreadId:21] Reports saved in folder: /app/reports
+2025-12-10 02:52:20.758 +00:00 [WRN] [ThreadId:21] THIS VERSION IS FREE ONLY FOR PERSONAL USE. You can't use it for an organization.
