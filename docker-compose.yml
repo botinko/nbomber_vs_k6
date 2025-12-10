@@ -60,7 +60,7 @@ services:
           cpus: '2'
           memory: 2048M
     volumes:
-      - ./nbomber/reports:/reports
+      - ./reports:/app/reports
       - dotnet-monitor-shared-volume:/dotnet-monitor
 
   # dotnet-monitor for NBomber runtime metrics

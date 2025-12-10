@@ -75,3 +75,5 @@ influxdb-data/
 
 # Dotnet monitor data
 dotnet-monitor-shared-volume/
+
+reports/

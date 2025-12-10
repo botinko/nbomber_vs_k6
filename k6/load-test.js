@@ -85,7 +85,7 @@ export function setup() {
 
 export function handleSummary(data) {
   return {
-    'reports/k6-report.html': htmlReport(data, { 
+    '/reports/k6-report.html': htmlReport(data, { 
       title: 'K6 Load Test Report',
       theme: 'default'
     }),
