@@ -1,0 +1,9 @@
+{
+  "PrometheusSink": {
+    "HttpListenerPrefixes": [
+      "http://+:9464"
+    ],
+    "ScrapeEndpointPath": "/metrics"
+  }
+}
+

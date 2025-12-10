@@ -1,0 +1,38 @@
+global:
+  scrape_interval: 5s
+  evaluation_interval: 5s
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'cadvisor'
+    static_configs:
+      - targets: ['cadvisor:8080']
+    metric_relabel_configs:
+      - source_labels: [container_label_com_docker_compose_service]
+        target_label: service
+      - source_labels: [name]
+        regex: '/docker-compose/(.+)'
+        target_label: container_name
+        replacement: '$1'
+
+  - job_name: 'rust-app'
+    static_configs:
+      - targets: ['rust-app:8080']
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+
+  - job_name: 'dotnet-monitor'
+    static_configs:
+      - targets: ['dotnet-monitor:7070']
+    scrape_interval: 1s
+    metrics_path: '/metrics'
+
+  - job_name: 'nbomber'
+    static_configs:
+      - targets: ['nbomber:9464']
+    scrape_interval: 1s
+    metrics_path: '/metrics'
+

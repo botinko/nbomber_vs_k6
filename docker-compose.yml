@@ -1,0 +1,197 @@
+version: '3.8'
+
+services:
+  # Rust web application target
+  rust-app:
+    build:
+      context: ./rust-app
+      dockerfile: Dockerfile
+    container_name: rust-app
+    ports:
+      - "8080:8080"
+    environment:
+      - RUST_LOG=info
+    networks:
+      - benchmark-net
+    sysctls:
+      - net.ipv4.tcp_tw_reuse=1
+      - net.ipv4.tcp_timestamps=1
+      - net.core.somaxconn=65535
+      - net.ipv4.tcp_max_syn_backlog=8192
+      - net.ipv4.tcp_fastopen=3
+    ulimits:
+      nofile: 250000      
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2048M
+        reservations:
+          cpus: '2'
+          memory: 2048M
+
+
+  # NBomber load generator
+  nbomber:
+    build:
+      context: ./nbomber
+      dockerfile: Dockerfile
+    container_name: nbomber
+    depends_on:
+      - rust-app
+      - prometheus
+    ports:
+      - 9464:9464
+    sysctls:
+      - net.ipv4.tcp_tw_reuse=1
+      - net.ipv4.tcp_timestamps=1
+    ulimits:
+      nofile: 250000
+    environment:
+      - TARGET_URL=http://rust-app:8080
+      - DOTNET_EnableDiagnostics=1
+      - DOTNET_DiagnosticPorts=/dotnet-monitor/port.sock,suspend=false
+    networks:
+      - benchmark-net
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4000M
+        reservations:
+          cpus: '2'
+          memory: 2048M
+    volumes:
+      - ./nbomber/reports:/app/reports
+      - dotnet-monitor-shared-volume:/dotnet-monitor
+
+  # dotnet-monitor for NBomber runtime metrics
+  dotnet-monitor:
+    image: mcr.microsoft.com/dotnet/monitor:10.0
+    container_name: dotnet-monitor
+    user: root
+    depends_on:
+      - nbomber
+    environment:
+      DotnetMonitor_Metrics__IncludeDefaultProviders: "true"
+      DotnetMonitor_Metrics__Endpoints: http://*:7070
+      DOTNETMONITOR_Urls: http://+:52323
+      # workaround for https://github.com/dotnet/dotnet-monitor/issues/1241
+      DotnetMonitor_GlobalCounter__IntervalSeconds: "1"
+      DotnetMonitor_DiagnosticPort__EndpointName: /dotnet-monitor/port.sock
+      DotnetMonitor_DiagnosticPort__ConnectionMode: Listen
+      Logging__Console__FormatterName: simple
+      DotnetMonitor_Metrics__Providers__0__ProviderName: Microsoft.Extensions.Diagnostics.ResourceMonitoring
+      DotnetMonitor_Metrics__Providers__1__ProviderName: System.Runtime
+      DotnetMonitor_Metrics__Providers__2__ProviderName: System.Net.NameResolution
+      DotnetMonitor_Metrics__Providers__3__ProviderName: System.Net.Http
+      DotnetMonitor_Metrics__Providers__4__ProviderName: Microsoft.AspNetCore.Hosting
+      DotnetMonitor_Metrics__Providers__5__ProviderName: Microsoft.AspNetCore.Routing
+      DotnetMonitor_Metrics__Providers__6__ProviderName: Microsoft.AspNetCore.Diagnostics
+      DotnetMonitor_Metrics__Providers__7__ProviderName: Microsoft.AspNetCore.RateLimiting
+      DotnetMonitor_Metrics__Providers__8__ProviderName: Microsoft.AspNetCore.Server.Kestrel
+      DotnetMonitor_Metrics__Providers__9__ProviderName: Microsoft.AspNetCore.Http.Connections
+      DotnetMonitor_Metrics__Providers__10__ProviderName: Microsoft.Data.SqlClient.EventSource
+    ports:
+      - 7070:7070
+    networks:
+      - benchmark-net
+    volumes:
+      - dotnet-monitor-shared-volume:/dotnet-monitor
+
+  # k6 load generator
+  k6:
+    image: grafana/k6:latest
+    container_name: k6
+    depends_on:
+      - rust-app
+      - prometheus
+    sysctls:
+      - net.ipv4.tcp_tw_reuse=1
+      - net.ipv4.tcp_timestamps=1
+    ulimits:
+      nofile: 250000
+    command: run --out experimental-prometheus-rw --no-summary --quiet /scripts/load-test.js
+    environment:
+      - TARGET_URL=http://rust-app:8080
+      - K6_NO_USAGE_REPORT=true
+      - K6_PROMETHEUS_RW_SERVER_URL=http://prometheus:9090/api/v1/write
+      - K6_PROMETHEUS_RW_TREND_STATS=count,sum,min,max,avg,med,p(75),p(90),p(95),p(99)
+    networks:
+      - benchmark-net
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4000M
+        reservations:
+          cpus: '2'
+          memory: 2048M
+    volumes:
+      - ./k6:/scripts
+
+  # Prometheus for metrics collection
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.enable-remote-write-receiver'
+      - '--enable-feature=native-histograms'
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prometheus-data:/prometheus
+    networks:
+      - benchmark-net
+
+  # Grafana for visualization
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - ./grafana/provisioning/plugins:/etc/grafana/provisioning/plugins
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+      - grafana-data:/var/lib/grafana
+    depends_on:
+      - prometheus
+    networks:
+      - benchmark-net
+
+  # cAdvisor for container metrics
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: cadvisor
+    ports:
+      - "8081:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
+    privileged: true
+    networks:
+      - benchmark-net
+
+networks:
+  benchmark-net:
+    driver: bridge
+    driver_opts:
+      com.docker.network.driver.mtu: 1500
+      com.docker.network.bridge.enable_icc: "true"
+
+volumes:
+  prometheus-data:
+  grafana-data:
+  dotnet-monitor-shared-volume:
