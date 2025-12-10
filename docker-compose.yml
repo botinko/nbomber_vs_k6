@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # Rust web application target
   rust-app:
@@ -62,7 +60,7 @@ services:
           cpus: '2'
           memory: 2048M
     volumes:
-      - ./nbomber/reports:/app/reports
+      - ./nbomber/reports:/reports
       - dotnet-monitor-shared-volume:/dotnet-monitor
 
   # dotnet-monitor for NBomber runtime metrics
@@ -81,6 +79,7 @@ services:
       DotnetMonitor_DiagnosticPort__EndpointName: /dotnet-monitor/port.sock
       DotnetMonitor_DiagnosticPort__ConnectionMode: Listen
       Logging__Console__FormatterName: simple
+      Logging__LogLevel__Default: Warning
       DotnetMonitor_Metrics__Providers__0__ProviderName: Microsoft.Extensions.Diagnostics.ResourceMonitoring
       DotnetMonitor_Metrics__Providers__1__ProviderName: System.Runtime
       DotnetMonitor_Metrics__Providers__2__ProviderName: System.Net.NameResolution
@@ -111,7 +110,7 @@ services:
       - net.ipv4.tcp_timestamps=1
     ulimits:
       nofile: 250000
-    command: run --out experimental-prometheus-rw --no-summary --quiet /scripts/load-test.js
+    command: run --out experimental-prometheus-rw /scripts/load-test.js
     environment:
       - TARGET_URL=http://rust-app:8080
       - K6_NO_USAGE_REPORT=true
@@ -129,6 +128,7 @@ services:
           memory: 2048M
     volumes:
       - ./k6:/scripts
+      - ./k6/reports:/reports
 
   # Prometheus for metrics collection
   prometheus:

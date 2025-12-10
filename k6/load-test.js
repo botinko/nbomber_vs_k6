@@ -1,5 +1,6 @@
 import http from 'k6/http';
 import { check, sleep } from 'k6';
+import { htmlReport } from 'https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js';
 
 const TARGET_URL = __ENV.TARGET_URL || 'http://rust-app:8080';
 
@@ -9,6 +10,7 @@ export const options = {
       executor: 'ramping-arrival-rate',
       startRate: 0,
       maxVUs: 500,
+      preAllocatedVUs: 10,
       stages: [
         { duration: '3m', target: 5000 },
       ],
@@ -18,6 +20,7 @@ export const options = {
       executor: 'ramping-arrival-rate',
       startRate: 0,
       maxVUs: 500,
+      preAllocatedVUs: 10,
       stages: [
         { duration: '3m', target: 5000 },
       ],
@@ -78,4 +81,13 @@ export function setup() {
     attempts++;
   }
   throw new Error('Target service did not become ready in time');
+}
+
+export function handleSummary(data) {
+  return {
+    'reports/k6-report.html': htmlReport(data, { 
+      title: 'K6 Load Test Report',
+      theme: 'default'
+    }),
+  };
 }
